@@ -12,7 +12,7 @@ export enum ENV_VARIABLES {
 export class Handler {
   private readonly logger = new Logger(Handler.name + ":GIT SUBMODULE");
 
-  constructor(private variables: Record<ENV_VARIABLES, string>) {
+  constructor(private variables: { [key: string]: string }) {
     this.logger.log(
       `Loaded ENV variables in GIT SUBMODULE package handler: ${JSON.stringify(this.variables, null, 2)}`
     );
