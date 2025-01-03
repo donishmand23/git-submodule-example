@@ -1,6 +1,6 @@
 import { Logger } from "@nestjs/common";
-import * as path from 'path';
-import * as fs from 'fs';
+import * as path from "path";
+import * as fs from "fs";
 
 export enum ENV_VARIABLES {
   FIRESTORE_PROJECT_ID = "FIRESTORE_PROJECT_ID",
@@ -14,7 +14,11 @@ export class Handler {
 
   constructor(private variables: { [key: string]: string }) {
     this.logger.log(
-      `Loaded ENV variables in GIT SUBMODULE package handler: ${JSON.stringify(this.variables, null, 2)}`
+      `Loaded ENV variables in GIT SUBMODULE package handler: ${JSON.stringify(
+        this.variables,
+        null,
+        2
+      )}`
     );
   }
 
@@ -23,19 +27,19 @@ export class Handler {
 
     try {
       // Use process.cwd() to get the root directory of the consuming project
-      const filePath = path.join(process.cwd(), 'data.json');
-      
+      const filePath = path.join(process.cwd(), "data.json");
+
       // Read existing data if file exists
       let existingData = [];
       if (fs.existsSync(filePath)) {
-        const fileContent = fs.readFileSync(filePath, 'utf8');
+        const fileContent = fs.readFileSync(filePath, "utf8");
         existingData = JSON.parse(fileContent);
       }
 
       // Add new data with timestamp
       existingData.push({
         ...data,
-        timestamp: new Date('2025-01-03T12:59:01+01:00').toISOString()
+        timestamp: new Date("2025-01-03T12:59:01+01:00").toISOString(),
       });
 
       // Write the updated data back to file
