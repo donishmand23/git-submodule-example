@@ -1,0 +1,26 @@
+{
+  "name": "simple-form-default-handler",
+  "version": "1.7.0",
+  "description": "NPM handler for NestJS Simple Form White Label",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": ["nestjs", "handler", "typescript"],
+  "author": "Muhammad Olimjonov",
+  "license": "MIT",
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.0 || ^9.0.0 || ^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "@nestjs/common": "^10.0.0",
+    "rxjs": "^7.0.0"
+  }
+}
